@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { FighterList } from "./fighters";
 
 function MMATable(props)
 {

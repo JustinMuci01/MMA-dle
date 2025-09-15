@@ -1,8 +1,16 @@
 import sqlite3
+import os
+
+
+
+script_path = os.path.abspath(__file__)
+script_directory = os.path.dirname(script_path)
+print(f"Script path: {script_path}")
+print(f"Script directory: {script_directory}")
 
 def buildDatabase():
     
-    conn = sqlite3.connect("ufc_database.db")
+    conn = sqlite3.connect( f"{script_directory}/datafiles/ufc_database.db")
     dbcursor = conn.cursor()
 
     sql = """CREATE TABLE IF NOT EXISTS Fighters(
@@ -19,7 +27,7 @@ def buildDatabase():
     dbcursor.execute(sql)
     conn.commit()
 
-    file_path = 'info.txt'
+    file_path = f"{script_directory}/datafiles/info.txt"
 
     lineQuery = """INSERT INTO Fighters (Ranking, Name, Wins, Country, Losses, Draws, WeightClass, URL)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)"""
@@ -57,7 +65,7 @@ def buildDatabase():
 
 
 def deleteTable():
-    conn = sqlite3.connect("ufc_database.db")
+    conn = sqlite3.connect(f"{script_directory}/datafiles/ufc_database.db")
     dbcursor = conn.cursor()
 
     sql = """DROP table Fighters"""
@@ -65,7 +73,7 @@ def deleteTable():
     dbcursor.execute(sql)
 
 def showTable():
-    conn = sqlite3.connect("ufc_database.db")
+    conn = sqlite3.connect(f"{script_directory}/datafiles/ufc_database.db")
     dbcursor = conn.cursor()
 
     sql = """SELECT * FROM Fighters"""
