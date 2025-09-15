@@ -2,6 +2,7 @@ import sqlite3
 import builddb
 #Build SQL database
 
+builddb.deleteTable()
 builddb.buildDatabase()
 
 #Build Objects
