@@ -1,0 +1,65 @@
+html{
+    background-color: #333333;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.headerBar{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar{
+    border-radius: 12px;
+    height: 35px;
+    width:300px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.fighterCard{
+    margin-top: 50px;
+    flex-direction: column;
+    display:flex;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}
+
+.fighterCard .topRow{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.topRow .fighterImg
+{
+    display: flex;
+    height:300px;
+    width:auto;
+}
+
+.fighterCard .bottomRow{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.topRow .fighterInfo
+{
+    background-color: aqua;
+    width:fit-content;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 30px;
+}
+
+.bottomRow .fighterInfo
+{
+    background-color: aqua;
+    width:fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 30px;
+}
