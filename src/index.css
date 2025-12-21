@@ -1,0 +1,182 @@
+html{
+    background-color: rgb(27, 27, 27);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.fighterList{
+
+    list-style-type: none;
+}
+.headerBar{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar{
+    border-radius: 12px;
+    height: 35px;
+    width:300px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.fighterCard{
+    margin-top: 50px;
+    flex-direction: column;
+    display:flex;
+    justify-content: center;
+    width: 550px;
+    height: 450px;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 213, 213);
+    background-color: #424242;
+}
+
+.fighterCard .topRow{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.topRow .fighterImg
+{
+    display: flex;
+    height:300px;
+    width:auto;
+}
+
+.fighterCard .bottomRow{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 130px;
+    margin-right: auto;
+}
+.topRow .fighterInfo
+{
+    background-color: #333333;
+    width:fit-content;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.countryName
+{
+    background-color: #333333;
+    width:200px;
+    border: 1px solid rgb(255, 213, 213);
+    text-align: center;
+    color: white;
+    height: fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    word-wrap: break-word;
+}
+
+.bottomRow .fighterInfo
+{
+    background-color: #333333;
+    color: white;
+    border-radius: 10px;
+    width:fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    border: 1px solid rgb(255, 213, 213);
+}
+
+.bottomRow .fighterInfo-correct
+{
+    background-color: #4cff35d3;
+    color: white;
+    border-radius: 10px;
+    width:fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    border: 1px solid rgb(255, 213, 213);
+}
+.bottomRow .fighterInfo-close
+{
+    background-color: #fbff23d3;
+    color: white;
+    border-radius: 10px;
+    width:fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    border: 1px solid rgb(255, 213, 213);
+}
+.infoBox{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.fighterInfo-correct
+{
+    background-color: #4cff35d3;
+    border: 1px solid rgb(255, 213, 213);
+    width:fit-content;
+    text-align: center;
+    color: white;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.fighterInfo-close
+{
+    background-color: #fbff23d3;
+    width:fit-content;
+    border: 1px solid rgb(255, 213, 213);
+    text-align: center;
+    color: white;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.countryName-correct
+{
+    background-color: #4cff35d3;
+    width:200px;
+    border: 1px solid rgb(255, 213, 213);
+    text-align: center;
+    color: white;
+    height: fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    word-wrap: break-word;
+}
