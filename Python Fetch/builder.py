@@ -2,14 +2,8 @@ import os
 from bs4 import BeautifulSoup
 import mysql.connector
 import requests
+from data import mydb
 
-
-mydb = mysql.connector.connect(
-    host = os.environ.get('DB_HOST'),
-    user=os.environ.get('DB_USER'),
-    password=os.environ.get('DB_PWORD'),
-    database = os.environ.get('DB')
-)
 
 mycursor = mydb.cursor()
 
@@ -36,7 +30,7 @@ def createTable():
                      )""")
 
 def showTable():
-    sql = 'SELECT * FROM Fighters'
+    sql = 'SELECT * FROM Fighters WHERE '
     mycursor.execute(sql)
     result = mycursor.fetchall()
 
