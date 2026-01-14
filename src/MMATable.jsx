@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from "react";
-import { FighterList } from "./fighters";
+import Fighter from "./Fighter";
 import './index.css'
 
 function MMATable(props)
 {
+    url = 'http://127.0.0.1:8000'
     const[targetFighter, setTargetFighter] = useState(FighterList[0]);
     const[guessCount, setGuessCount] = useState(0);
     const weightClasses = ["Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW", "SW", "Flw", "BW"];
     const [guesses, setGuesses] = useState([]);
 
     const [currGuess, setCurrGuess] = useState("")
+
+    gameOver = false;
 
     function handleInputChange(e){
         setCurrGuess(e.target.value);
@@ -100,7 +103,7 @@ function MMATable(props)
     }
     function computeGuess(Guess)
     {
-        if (guessCount > 9)
+        if (guessCount > 9 || gameOver)
         {
             return;
         }
