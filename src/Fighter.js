@@ -9,6 +9,8 @@ class Fighter{
         this.weightClass = weightClass;
         this.country = country;
         this.pic = pic;
+        this.stylesArray = null;
+        
     }
 
     DisplayInfo()
@@ -27,16 +29,16 @@ class Fighter{
             fighter: 'Ilia Topuria'
         },
     }
-    const url = 'http://127.0.0.1:8000/names'
+    const url = `http://127.0.0.1:8000/fighters/?fighter=${encodeURIComponent('Lerone Murphy')}`;
 
-    const fetchPromise = fetch(url)
+    const fetchPromise = fetch(url);
 
     fetchPromise.then((response) => {
 
     let jsonPromise = response.json()
     
     jsonPromise.then( (data) =>{
-        console.log(data)
+        console.log(data);
     });
 
     });

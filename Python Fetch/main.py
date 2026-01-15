@@ -24,7 +24,6 @@ def extract_info():
         cursor.execute(query)  
         result = cursor.fetchall()
 
-        print(result)
         cursor.close()
 
         if not result:
@@ -40,6 +39,7 @@ def extract_info(fighter):
         cursor = mydb.cursor()
         query = """SELECT * FROM Fighters WHERE Name = %s Limit 1;"""
 
+        print(fighter)
         cursor.execute(query, (fighter, ))  
         result = cursor.fetchone()
 
