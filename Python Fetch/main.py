@@ -4,16 +4,16 @@ from data import mydb
 from mysql.connector import Error
 app = FastAPI()
 
-origins = "http://localhost:*"
+origins = ["http://localhost:5173",
+        "http://127.0.0.1:5173",]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=origins,
+    allow_origins = origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.get("/names")
 def extract_info():

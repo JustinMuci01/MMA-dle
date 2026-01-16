@@ -9,7 +9,6 @@ class Fighter{
         this.weightClass = weightClass;
         this.country = country;
         this.pic = pic;
-        this.stylesArray = null;
         
     }
 
@@ -20,26 +19,4 @@ class Fighter{
 
 }
 
-// let f = new Fighter('Ilia Topuria', 1, 1, 1, 1, 'Lw', 'Spain', 'picurl')
-// f.DisplayInfo()
-
-    const options = {
-        method: 'GET',
-        headers:{
-            fighter: 'Ilia Topuria'
-        },
-    }
-    const url = `http://127.0.0.1:8000/fighters/?fighter=${encodeURIComponent('Lerone Murphy')}`;
-
-    const fetchPromise = fetch(url);
-
-    fetchPromise.then((response) => {
-
-    let jsonPromise = response.json()
-    
-    jsonPromise.then( (data) =>{
-        console.log(data);
-    });
-
-    });
 export default Fighter;

@@ -4,55 +4,55 @@ import './index.css'
 
 function MMATable(props)
 {
-    url = 'http://127.0.0.1:8000'
-    const[targetFighter, setTargetFighter] = useState(FighterList[0]);
+    const[targetFighter, setTargetFighter] = useState(null);
     const[guessCount, setGuessCount] = useState(1);
     const weightClasses = ["Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW", "SW", "Flw", "BW"];
     const [guesses, setGuesses] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [currGuess, setCurrGuess] = useState("")
+    const [currGuess, setCurrGuess] = useState("");
 
-    gameOver = false;
-    playerWon = false;
+    const[gameOver, setGameOver] = useState(false);
+    const[playerWon, setPlayerWon] = useState(false);
 
     async function searchFighter(fighterName)
     {
         const url = `http://127.0.0.1:8000/fighters/?fighter=${encodeURIComponent(fighterName)}`;
-        const fetchPromise = fetch(url);
+        const response = await fetch(url);
         
-        fetchPromise.then(response =>{
-            if (!response.ok)
-            {
-                throw new Error(`HTTP Error! status: ${response.status}`)
-            }
-            let jsonPromise = response.json()
+        if (!response.ok)
+        {
+            throw new Error(`HTTP Error! status: ${response.status}`);
+        }
+        let jsonResponse = await response.json();
 
-            jsonPromise.then( data =>{
-                let f = new Fighter(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]);
-                return f;
-            });
-        });
+        let f = new Fighter(jsonResponse[0], jsonResponse[1], jsonResponse[2], jsonResponse[3], jsonResponse[4], jsonResponse[5], jsonResponse[6], jsonResponse[7], jsonResponse[8]);
+        return f;
+
 
     }
 
     async function chooseTarget()
     {
         const url = `http://127.0.0.1:8000/names`;
-        const fetchPromise = fetch(url);  
-        fetchPromise.then(response =>{
-            if (!response.ok)
-            {
-                throw new Error(`HTTP Error! status: ${response.status}`)
-            }
-            let jsonPromise = response.json()
+        const response = await fetch(url);  
+        if (!response.ok)
+        {
+            throw new Error(`HTTP Error! status: ${response.status}`);
+        }
+        let jsonResponse = await response.json();
 
-            jsonPromise.then( data =>{
-                let targetNumb = Math.floor(Math.random()* data.length)
-                setTargetFighter(searchFighter(data[targetNumb]))
-            });
-        });
+        console.log("JSON RESPONSE RECEIVED ON NAMES:");
+        console.log(jsonResponse);
+        let targetNumb = Math.floor(Math.random()* jsonResponse.length);
 
+        console.log("Target Name: ", jsonResponse[targetNumb]);
+        const fighter = await searchFighter(jsonResponse[targetNumb]);
+
+        console.log("TARGET FIGHTER: ", fighter);
+        setTargetFighter(fighter);
     }
+
     useEffect(() =>{
         chooseTarget();
     }, [])
@@ -64,26 +64,30 @@ function MMATable(props)
     {
         let styles = [];
 
+        setPlayerWon(true);
         if (fighter.country === targetFighter.country)
         {
             styles.push("-correct");
         }
         else
         {
-            styles.push("");    
+            styles.push("");  
+            setPlayerWon(false);
         }
 
         if (fighter.weightClass === targetFighter.weightClass)
         {
             styles.push("-correct");
         }
-        else if (Math.abs(weightClasses.indexOf([fighter.weightClass]) - weightClasses.indexOf([targetFighter.weightClass])) < 2)
+        else if (Math.abs(weightClasses.indexOf(fighter.weightClass) - weightClasses.indexOf(targetFighter.weightClass)) < 2)
         {
-            styles.push("-close");    
+            styles.push("-close");   
+            setPlayerWon(false);
         }
         else
         {
             styles.push("");    
+            setPlayerWon(false);
         }
 
         if (fighter.ranking === targetFighter.ranking)
@@ -92,11 +96,13 @@ function MMATable(props)
         }
         else if (Math.abs(fighter.ranking - targetFighter.ranking) <=3)
         {
-            styles.push("-close");    
+            styles.push("-close"); 
+            setPlayerWon(false); 
         }
         else
         {
             styles.push("");    
+            setPlayerWon(false);  
         }
 
         if (fighter.wins === targetFighter.wins)
@@ -105,11 +111,13 @@ function MMATable(props)
         }
         else if (Math.abs(fighter.wins - targetFighter.wins) <=3)
         {
-            styles.push("-close");    
+            styles.push("-close");   
+            setPlayerWon(false);   
         }
         else
         {
             styles.push("");
+            setPlayerWon(false);
         }
 
         if (fighter.losses === targetFighter.losses)
@@ -118,11 +126,13 @@ function MMATable(props)
         }
         else if (Math.abs(fighter.losses - targetFighter.losses) <=3)
         {
-            styles.push("-close");    
+            styles.push("-close"); 
+            setPlayerWon(false);  
         }
         else
         {
             styles.push("");    
+            setPlayerWon(false);  
         }
 
         if (fighter.draws === targetFighter.draws)
@@ -132,30 +142,44 @@ function MMATable(props)
         else if (Math.abs(fighter.draws - targetFighter.draws) <=3)
         {
             styles.push("-close");    
+            setPlayerWon(false);
         }
         else
         {
             styles.push("");    
+            setPlayerWon(false);  
         }
 
         console.log(styles);
         return styles
     }
-    function computeGuess(fighterName)
+    async function computeGuess(fighterName)
     {
         if (gameOver)
         {
             return;
         }
+        guesses.forEach( (guess) => {
+            if (guess.name === fighterName)  //Fighter has already been guessed
+            {
+                return;
+            }
+        });
         try{
-            let tempFighter = searchFighter(fighterName);
-            tempFighter.stylesArr = getColors(tempFighter);
-            setGuesses([...guesses, tempFighter]);
+            setIsLoading(true);
+            let tempFighter = await searchFighter(fighterName);
+            const stylesArr = getColors(tempFighter);
+            console.log("TEMP = ", tempFighter);
+            setGuesses([...guesses, {tempFighter, stylesArr}]);
             setGuessCount(guessCount+1);
             if (guessCount == 11)
             {
-                gameOver=true;
+                setGameOver(true);
             }
+            let object = {tempFighter, stylesArr};
+            console.log("guesses Array = ", object);
+
+            setIsLoading(false);
         }
         catch (e){
             console.error(e);
@@ -173,8 +197,8 @@ function MMATable(props)
         <button onClick = {() => computeGuess(currGuess)}> Guess </button>
         </div>
         <ul>
-            {guesses.map((f) =>(
-                <li key = {f.name}>
+            {!isLoading && guesses != null && guesses.map((f) =>(
+                <li key = {f.tempFighter.name}>
                 <div className = "fighterCard"> 
                 <div className = "topRow">
                 <div className = {`countryName${f.stylesArr[0]}`}> {f.country}</div>
