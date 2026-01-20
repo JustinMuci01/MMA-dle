@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import Fighter from "./Fighter";
 import './index.css'
 
@@ -6,7 +6,7 @@ function MMATable(props)
 {
     const[targetFighter, setTargetFighter] = useState(null);
     const[guessCount, setGuessCount] = useState(1);
-    const weightClasses = ["Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW", "SW", "Flw", "BW"];
+    const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
     const [guesses, setGuesses] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -46,7 +46,6 @@ function MMATable(props)
         console.log(jsonResponse);
         let targetNumb = Math.floor(Math.random()* jsonResponse.length);
 
-        console.log("Target Name: ", jsonResponse[targetNumb]);
         const fighter = await searchFighter(jsonResponse[targetNumb]);
 
         console.log("TARGET FIGHTER: ", fighter);
@@ -159,25 +158,22 @@ function MMATable(props)
         {
             return;
         }
-        guesses.forEach( (guess) => {
-            if (guess.name === fighterName)  //Fighter has already been guessed
-            {
-                return;
-            }
-        });
+        if (guesses.some((g)=>g.tempFighter.name === fighterName))
+        {
+            return;
+        }
         try{
             setIsLoading(true);
             let tempFighter = await searchFighter(fighterName);
             const stylesArr = getColors(tempFighter);
             console.log("TEMP = ", tempFighter);
-            setGuesses([...guesses, {tempFighter, stylesArr}]);
-            setGuessCount(guessCount+1);
-            if (guessCount == 11)
-            {
-                setGameOver(true);
-            }
+            setGuessCount(prev => {
+                if (prev + 1 >= 11) setGameOver(true);
+                return prev + 1;
+            });
+
             let object = {tempFighter, stylesArr};
-            console.log("guesses Array = ", object);
+            setGuesses([object, ...guesses]);
 
             setIsLoading(false);
         }
@@ -192,27 +188,41 @@ function MMATable(props)
         <link rel="icon" href="../img/gloves.png" type = "image"/>
         <title>MMA-DLE</title>
         
+        <h1>MMA-DLE</h1>
         <div className = "headerBar">
         <input type="text" onChange = {handleInputChange}className = "searchBar" placeholder="Type a guess here..."/>
         <button onClick = {() => computeGuess(currGuess)}> Guess </button>
+        <p className = "sideText">Guess {guessCount} of 10 </p>
         </div>
         <ul>
             {!isLoading && guesses != null && guesses.map((f) =>(
                 <li key = {f.tempFighter.name}>
                 <div className = "fighterCard"> 
+                
                 <div className = "topRow">
-                <div className = {`countryName${f.stylesArr[0]}`}> {f.country}</div>
-                <img src = {f.picURL} loading ="lazy" alt="" className = "fighterImg"/>
-                <div className = "infoBox">
-                    <div className = {`fighterInfo${f.stylesArr[1]}`}> {f.weightClass}</div>
-                    <div className = {`fighterInfo${f.stylesArr[2]}`}> # {f.ranking}</div>
+                <div className = 'column'>
+                    <p className = 'subtext'> Fighting out of:</p>
+                    <div className = {`countryName${f.stylesArr[0]}`}> {f.tempFighter.country}</div>
+                </div>
+
+                <div className = 'column'>
+                    <img src = {f.tempFighter.pic} loading ="lazy" alt="pic" className = "fighterImg"/>
+                </div>
+
+                <div className = 'column'>
+                    <p className = 'subtext'> Weight Class:</p>
+                    <div className = {`fighterInfo${f.stylesArr[1]}`}> {f.tempFighter.weightClass}</div>
+                    <p className = 'ranking-text'> Ranking:</p>
+                    <div className = {`fighterInfo${f.stylesArr[2]}`}> { (f.tempFighter.ranking===0 ? 'C' : '#' + f.tempFighter.ranking)}</div>
                 </div>
                 </div>
+                <p className = 'fighter-name'> {f.tempFighter.name}</p>
                 <div className = "bottomRow">
-                <div className = {`fighterInfo${f.stylesArr[3]}`}> {f.wins}</div>
-                <p></p>
-                <div className = {`fighterInfo${f.stylesArr[4]}`}> {f.losses}</div>
-                <div className = {`fighterInfo${f.stylesArr[5]}`}> {f.draws}</div>
+                <div className = {`fighterInfo${f.stylesArr[3]}`}> {f.tempFighter.wins}</div>
+                <div className = 'dash'>-</div>
+                <div className = {`fighterInfo${f.stylesArr[4]}`}> {f.tempFighter.losses}</div>
+                <div className = 'dash'>-</div>
+                <div className = {`fighterInfo${f.stylesArr[5]}`}> {f.tempFighter.draws}</div>
                 </div>
                 </div>
                 </li>
