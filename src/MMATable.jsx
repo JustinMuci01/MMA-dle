@@ -9,6 +9,7 @@ function MMATable(props)
     const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
     const [guesses, setGuesses] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [fetchingStorage, setFetchingStorage] = useState(false);
 
     const [currGuess, setCurrGuess] = useState("");
 
@@ -29,7 +30,6 @@ function MMATable(props)
         let f = new Fighter(jsonResponse[0], jsonResponse[1], jsonResponse[2], jsonResponse[3], jsonResponse[4], jsonResponse[5], jsonResponse[6], jsonResponse[7], jsonResponse[8]);
         return f;
 
-
     }
 
     async function chooseTarget()
@@ -42,8 +42,6 @@ function MMATable(props)
         }
         let jsonResponse = await response.json();
 
-        console.log("JSON RESPONSE RECEIVED ON NAMES:");
-        console.log(jsonResponse);
         let targetNumb = Math.floor(Math.random()* jsonResponse.length);
 
         const fighter = await searchFighter(jsonResponse[targetNumb]);
@@ -52,18 +50,82 @@ function MMATable(props)
         setTargetFighter(fighter);
     }
 
+    useEffect(() => {
+        async function restore(){
+            try {
+                setFetchingStorage(true);
+                const storedGuesses = localStorage.getItem('guesses');
+                const storedGuessCount = localStorage.getItem('guessCount');
+                const storedGameOver = localStorage.getItem('gameOver');
+                const storedTarget = localStorage.getItem('targetFighter');
+
+                console.log("STORED GUESSES " + JSON.parse(storedGuesses));
+                console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
+                console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
+                console.log("STORED TARGET " +JSON.parse(storedTarget));
+
+
+                if (JSON.parse(storedGuesses)) {
+                    const parsedGuesses = JSON.parse(storedGuesses);
+                    if (parsedGuesses.length > 0) {
+                        setGuesses(parsedGuesses);                    }
+                }
+                
+                if (Number(storedGuessCount)){
+                    setGuessCount(Number(storedGuessCount) || 1);
+                }
+
+                if (storedGameOver){
+                    setGameOver(storedGameOver ? JSON.parse(storedGameOver) : false);
+                }
+
+                if (JSON.parse(storedTarget)) {
+                    setTargetFighter(JSON.parse(storedTarget));
+                } else {
+                    console.log("now in choose");
+                    await chooseTarget();
+                }
+
+            } catch (e) {
+                console.error(e);
+                await chooseTarget();
+            }
+            finally{
+                setFetchingStorage(false);
+            }
+        }
+
+        restore();
+    }, []);
+
+
     useEffect(() =>{
-        chooseTarget();
-    }, [])
+        localStorage.setItem('guessCount', guessCount);
+        localStorage.setItem('guesses', JSON.stringify(guesses));
+        localStorage.setItem('gameOver', JSON.stringify(gameOver));
+        localStorage.setItem('targetFighter', JSON.stringify(targetFighter));
+    }, [guessCount])
+
     function handleInputChange(e){
         setCurrGuess(e.target.value);
     }
+
+    function isExactMatch(fighter) {
+    return (
+        fighter.country === targetFighter.country &&
+        fighter.weightClass === targetFighter.weightClass &&
+        fighter.ranking === targetFighter.ranking &&
+        fighter.wins === targetFighter.wins &&
+        fighter.losses === targetFighter.losses &&
+        fighter.draws === targetFighter.draws
+    );
+}
 
     function getColors(fighter)
     {
         let styles = [];
 
-        setPlayerWon(true);
+        console.log(targetFighter);
         if (fighter.country === targetFighter.country)
         {
             styles.push("-correct");
@@ -71,7 +133,6 @@ function MMATable(props)
         else
         {
             styles.push("");  
-            setPlayerWon(false);
         }
 
         if (fighter.weightClass === targetFighter.weightClass)
@@ -81,12 +142,10 @@ function MMATable(props)
         else if (Math.abs(weightClasses.indexOf(fighter.weightClass) - weightClasses.indexOf(targetFighter.weightClass)) < 2)
         {
             styles.push("-close");   
-            setPlayerWon(false);
         }
         else
         {
             styles.push("");    
-            setPlayerWon(false);
         }
 
         if (fighter.ranking === targetFighter.ranking)
@@ -95,13 +154,11 @@ function MMATable(props)
         }
         else if (Math.abs(fighter.ranking - targetFighter.ranking) <=3)
         {
-            styles.push("-close"); 
-            setPlayerWon(false); 
+            styles.push("-close");  
         }
         else
         {
-            styles.push("");    
-            setPlayerWon(false);  
+            styles.push("");      
         }
 
         if (fighter.wins === targetFighter.wins)
@@ -110,13 +167,11 @@ function MMATable(props)
         }
         else if (Math.abs(fighter.wins - targetFighter.wins) <=3)
         {
-            styles.push("-close");   
-            setPlayerWon(false);   
+            styles.push("-close");      
         }
         else
         {
             styles.push("");
-            setPlayerWon(false);
         }
 
         if (fighter.losses === targetFighter.losses)
@@ -125,13 +180,11 @@ function MMATable(props)
         }
         else if (Math.abs(fighter.losses - targetFighter.losses) <=3)
         {
-            styles.push("-close"); 
-            setPlayerWon(false);  
+            styles.push("-close");   
         }
         else
         {
-            styles.push("");    
-            setPlayerWon(false);  
+            styles.push("");      
         }
 
         if (fighter.draws === targetFighter.draws)
@@ -141,32 +194,32 @@ function MMATable(props)
         else if (Math.abs(fighter.draws - targetFighter.draws) <=3)
         {
             styles.push("-close");    
-            setPlayerWon(false);
         }
         else
         {
-            styles.push("");    
-            setPlayerWon(false);  
+            styles.push("");      
         }
-
-        console.log(styles);
         return styles
     }
+
     async function computeGuess(fighterName)
     {
-        if (gameOver)
+        console.log(targetFighter);
+        if (gameOver || !targetFighter)
         {
             return;
         }
         if (guesses.some((g)=>g.tempFighter.name === fighterName))
         {
+            console.log('Already Guessed');
             return;
         }
         try{
             setIsLoading(true);
             let tempFighter = await searchFighter(fighterName);
             const stylesArr = getColors(tempFighter);
-            console.log("TEMP = ", tempFighter);
+            setPlayerWon(isExactMatch(tempFighter));
+            setGameOver(isExactMatch(tempFighter));
             setGuessCount(prev => {
                 if (prev + 1 >= 11) setGameOver(true);
                 return prev + 1;
@@ -189,11 +242,15 @@ function MMATable(props)
         <title>MMA-DLE</title>
         
         <h1>MMA-DLE</h1>
+        {fetchingStorage ? (
+        <div className = 'subtext'>Loading...</div>      
+        ) : (
         <div className = "headerBar">
         <input type="text" onChange = {handleInputChange}className = "searchBar" placeholder="Type a guess here..."/>
         <button onClick = {() => computeGuess(currGuess)}> Guess </button>
         <p className = "sideText">Guess {guessCount} of 10 </p>
         </div>
+        )}
         <ul>
             {!isLoading && guesses != null && guesses.map((f) =>(
                 <li key = {f.tempFighter.name}>
@@ -201,7 +258,7 @@ function MMATable(props)
                 
                 <div className = "topRow">
                 <div className = 'column'>
-                    <p className = 'subtext'> Fighting out of:</p>
+                    <p className = 'subtext'> Country of Origin:</p>
                     <div className = {`countryName${f.stylesArr[0]}`}> {f.tempFighter.country}</div>
                 </div>
 
