@@ -15,10 +15,11 @@ h1{
     align-items: center;
     text-align: center;
     color:white;
-    font-size: 70px;
-    margin-bottom: 0;
-    margin-top:0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 80px;
+    margin-bottom: 30px;
+    margin-top:30px;
+    text-shadow: 2px 0px 30px #442626;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 .headerBar{
     margin-top: 30px;
@@ -49,7 +50,7 @@ h1{
     height: 490px;
     border-radius: 10px;
     border: 2px solid rgb(255, 213, 213);
-    background-color: #424242;
+    background-color: #423232;
 }
 
 .fighterCard .topRow{
@@ -82,6 +83,12 @@ ul{
     padding: 0;
 }
 
+body {
+    background-image: linear-gradient( #330202, #0c0c0c);
+    margin:0;
+    padding:0;
+    min-height:100vh;
+}   
 
 
 .topRow .fighterInfo
@@ -96,14 +103,18 @@ ul{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     padding: 20px;
     margin-top: 20px;
+    border: 1px solid white;
 }
 
 .sideText
 {
     color:white;
-    background-color: #333333;
+    background-color: #000000;
     padding:10px;
     margin-left: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(153, 153, 153);
 }
 .countryName
 {
@@ -145,6 +156,7 @@ ul{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     padding: 20px;
     margin-top: 10px;
+    text-shadow: 1px 0px 6px #000000;
     border: 1px solid rgb(255, 213, 213);
 }
 .bottomRow .fighterInfo-close
@@ -157,6 +169,7 @@ ul{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     padding: 20px;
     margin-top: 10px;
+    text-shadow: 1px 0px 6px #000000;
     border: 1px solid rgb(255, 213, 213);
 }
 .infoBox{
@@ -174,6 +187,7 @@ ul{
     color: white;
     height: 50px;
     font-size: 40px;
+    text-shadow: 1px 0px 6px #000000;
     border-radius: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     padding: 20px;
@@ -220,6 +234,7 @@ ul{
     text-align: center;
     color: white;
     height: 50px;
+    text-shadow: 1px 0px 6px #000000;
     font-size: 40px;
     border-radius: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
@@ -238,6 +253,25 @@ ul{
     font-size: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     padding-top: 20px;
+    text-shadow: 1px 0px 6px #000000;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    word-wrap: break-word;
+}
+
+.countryName-close
+{
+    background-color: #fbff23d3;
+    width:200px;
+    border: 1px solid rgb(255, 213, 213);
+    text-align: center;
+    color: white;
+    height: fit-content;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding-top: 20px;
+    text-shadow: 1px 0px 6px #000000;
     padding-bottom: 20px;
     border-radius: 10px;
     margin-top: 20px;

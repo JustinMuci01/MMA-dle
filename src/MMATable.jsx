@@ -1,6 +1,8 @@
 import {useState, useEffect} from "react";
 import Fighter from "./Fighter";
 import './index.css'
+import IsBordering from "./Country";
+
 
 function MMATable(props)
 {
@@ -16,6 +18,7 @@ function MMATable(props)
     const[gameOver, setGameOver] = useState(false);
     const[playerWon, setPlayerWon] = useState(false);
 
+    //Search for a specified fighter
     async function searchFighter(fighterName)
     {
         const url = `http://127.0.0.1:8000/fighters/?fighter=${encodeURIComponent(fighterName)}`;
@@ -28,10 +31,10 @@ function MMATable(props)
         let jsonResponse = await response.json();
 
         let f = new Fighter(jsonResponse[0], jsonResponse[1], jsonResponse[2], jsonResponse[3], jsonResponse[4], jsonResponse[5], jsonResponse[6], jsonResponse[7], jsonResponse[8]);
-        return f;
-
+        return f; //return fighter object (see Fighter.js)
     }
 
+    //Choose a fighter randomly to be the target
     async function chooseTarget()
     {
         const url = `http://127.0.0.1:8000/names`;
@@ -50,19 +53,26 @@ function MMATable(props)
         setTargetFighter(fighter);
     }
 
+    //Check local Storage for stored guesses, choose target if needed
     useEffect(() => {
         async function restore(){
             try {
                 setFetchingStorage(true);
+
+                const now = new Date();
+                const timeString = now.toISOString();
+                console.log(timeString);
+
+                localStorage.clear();
                 const storedGuesses = localStorage.getItem('guesses');
                 const storedGuessCount = localStorage.getItem('guessCount');
                 const storedGameOver = localStorage.getItem('gameOver');
                 const storedTarget = localStorage.getItem('targetFighter');
 
-                console.log("STORED GUESSES " + JSON.parse(storedGuesses));
-                console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
-                console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
-                console.log("STORED TARGET " +JSON.parse(storedTarget));
+                // console.log("STORED GUESSES " + JSON.parse(storedGuesses));
+                // console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
+                // console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
+                // console.log("STORED TARGET " +JSON.parse(storedTarget));
 
 
                 if (JSON.parse(storedGuesses)) {
@@ -70,7 +80,7 @@ function MMATable(props)
                     if (parsedGuesses.length > 0) {
                         setGuesses(parsedGuesses);                    }
                 }
-                
+
                 if (Number(storedGuessCount)){
                     setGuessCount(Number(storedGuessCount) || 1);
                 }
@@ -82,7 +92,6 @@ function MMATable(props)
                 if (JSON.parse(storedTarget)) {
                     setTargetFighter(JSON.parse(storedTarget));
                 } else {
-                    console.log("now in choose");
                     await chooseTarget();
                 }
 
@@ -98,7 +107,7 @@ function MMATable(props)
         restore();
     }, []);
 
-
+    //for each guess, update local storage
     useEffect(() =>{
         localStorage.setItem('guessCount', guessCount);
         localStorage.setItem('guesses', JSON.stringify(guesses));
@@ -110,17 +119,19 @@ function MMATable(props)
         setCurrGuess(e.target.value);
     }
 
+    //Determine if player has won
     function isExactMatch(fighter) {
-    return (
-        fighter.country === targetFighter.country &&
-        fighter.weightClass === targetFighter.weightClass &&
-        fighter.ranking === targetFighter.ranking &&
-        fighter.wins === targetFighter.wins &&
-        fighter.losses === targetFighter.losses &&
-        fighter.draws === targetFighter.draws
-    );
-}
+        return (
+            fighter.country === targetFighter.country &&
+            fighter.weightClass === targetFighter.weightClass &&
+            fighter.ranking === targetFighter.ranking &&
+            fighter.wins === targetFighter.wins &&
+            fighter.losses === targetFighter.losses &&
+            fighter.draws === targetFighter.draws
+        );
+    }
 
+    //Determine if fighter has correct or close paramaters to target fighter
     function getColors(fighter)
     {
         let styles = [];
@@ -130,9 +141,13 @@ function MMATable(props)
         {
             styles.push("-correct");
         }
+        else if (IsBordering(targetFighter.country, fighter.country))
+        {
+            styles.push("-close");  
+        }
         else
         {
-            styles.push("");  
+            styles.push("");
         }
 
         if (fighter.weightClass === targetFighter.weightClass)
@@ -202,9 +217,10 @@ function MMATable(props)
         return styles
     }
 
+    //If game is not already over, fetch fighter and add to guesses list
+    //Checks for duplicate guesses.
     async function computeGuess(fighterName)
     {
-        console.log(targetFighter);
         if (gameOver || !targetFighter)
         {
             return;

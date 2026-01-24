@@ -30,7 +30,7 @@ def createTable():
                      )""")
 
 def showTable():
-    sql = 'SELECT * FROM Fighters WHERE '
+    sql = 'SELECT * FROM Fighters'
     mycursor.execute(sql)
     result = mycursor.fetchall()
 
@@ -52,6 +52,22 @@ def showTable():
 #PARSE THROUGH HTML DOC FOR ATHLETE LINKS
 def findTags(tag):
     return tag.name == "a" and tag.get("href", "").startswith("/athlete")
+
+def showOne(fighterName):
+    sql = 'SELECT * FROM Fighters WHERE Name =%s;'
+    mycursor.execute(sql,(fighterName,))
+    r = mycursor.fetchone()
+    if r is not None:
+        if int(r[1]) == None or int(r[1])==0:
+            rank = 'C'
+        else:
+            rank = f"#{r[1]}"
+        print(
+            f"{rank} ({r[5]}) {r[0]}: "
+            f"{r[2]}-{r[3]}-{r[4]} From {r[6]}"
+            )
+    else:
+        print("%s not found", fighterName)
 
 #FROM ATHLETE LINKS AND WEIGHTCLASS, EXTRACT WINS, LOSSES, DRAWS, COUNTRY, and PICURL
 #THEN ADDS INTO SQL TABLE 'Fighters'
@@ -102,6 +118,21 @@ def extractPlayer(player, WC, ranking):
                      VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                      """
     
+    if (name == "Ciryl Gane"):
+        country = "France"
+    if (name == "Waldo Cortes Acosta"):
+        country = "Dominican Republic"
+    if (name == "Shamil Gaziev"):
+        country = "Russia"
+    if (name == "Mateusz Gamrot"):
+        country = "Poland"
+    if (name == "Khamzat Chimaev"):
+        country = "Russia"
+    if (name == "Waldo Cortes Acosta"):
+        country = "Dominican Republic"
+    if (name == "Farès Ziam"):
+        country = "France"
+    
     mycursor.execute(sql, (name, ranking, wins, losses, draws, WC, country, imgTag))
     mydb.commit()
 
@@ -127,7 +158,14 @@ def buildDB():
             extractPlayer(string_list[idx], currClass, j)
             idx+=1
         
+def clearTable():
+    sql = "DELETE FROM Fighters"
+    mycursor.execute(sql)
+    mydb.commit()
 
+
+clearTable()
+buildDB()
 showTable()
 mycursor.close()
 mydb.close()

@@ -35,7 +35,7 @@ C (FW) Alexander Volkanovski: 27-4-0 From Australia
 #11 (Flw) Casey O'Neill: 10-2-0 From Scotland
 #13 (Flw) Charles Johnson: 18-7-0 From United States
 #2 (LW) Charles Oliveira: 36-11-0 From Brazil
-#1 (HW) Ciryl Gane: 13-2-0 From La Roche-sur-Yon
+#1 (HW) Ciryl Gane: 13-2-0 From France
 #14 (WW) Colby Covington: 17-5-0 From United States
 #4 (BW) Cory Sandhagen: 18-6-0 From United States
 #4 (HW) Curtis Blaydes: 19-5-0 From United States
@@ -52,7 +52,7 @@ C (FW) Alexander Volkanovski: 27-4-0 From Australia
 #1 (MW) Dricus Du Plessis: 23-3-0 From South Africa
 #13 (Flw) Eduarda Moura: 12-1-0 From Brazil
 #3 (Flw) Erin Blanchfield: 14-2-0 From United States
-#15 (LW) Farès Ziam: 18-4-0 From Vénissieux
+#15 (LW) Farès Ziam: 18-4-0 From France
 #12 (SW) Fatima Kline: 9-1-0 From United States
 #11 (WW) Gabriel Bonfim: 19-1-0 From Brazil
 #15 (Flw) Gabriella Fernandes: 11-3-0 From Brazil
@@ -84,15 +84,15 @@ C (WW) Islam Makhachev: 28-1-0 From Russia
 #11 (FW) Josh Emmett: 19-6-0 From United States
 C (Flw) Joshua Van: 16-2-0 From Myanmar
 #1 (BW) Julianna Peña: 13-6-0 From United States
-#4 (LW) Justin Gaethje: 27-5-0 From United States
+#4 (LW) Justin Gaethje: 26-5-0 From United States
 #8 (WW) Kamaru Usman: 21-4-0 From Nigeria
-#9 (Flw) Karine Silva: 19-6-0 From Brazil
+#10 (Flw) Karine Silva: 19-6-0 From Brazil
 #9 (BW) Karol Rosa: 19-7-0 From Brazil
 C (BW) Kayla Harrison: 19-1-0 From United States
 #4 (BW) Ketlen Vieira: 15-5-0 From Brazil
 #13 (FW) Kevin Vallejos: 16-1-0 From Argentina
 #4 (LHW) Khalil Rountree Jr.: 15-7-0 From United States
-C (MW) Khamzat Chimaev: 15-0-0 From Wrestler
+C (MW) Khamzat Chimaev: 15-0-0 From Russia
 #14 (BW) Kyler Phillips: 12-4-0 From United States
 #8 (Flw) Kyoji Horiguchi: 35-5-0 From Japan
 #9 (WW) Leon Edwards: 22-6-0 From Jamaica
@@ -109,7 +109,7 @@ C (SW) Mackenzie Dern: 16-5-0 From United States
 #10 (HW) Marcin Tybura: 27-10-0 From Poland
 #9 (BW) Mario Bautista: 16-3-0 From United States
 #8 (BW) Marlon Vera: 23-11-1 From Ecuador
-#7 (LW) Mateusz Gamrot: 25-4-0 From Bielsko
+#7 (LW) Mateusz Gamrot: 25-4-0 From Poland
 #14 (LW) Mauricio Ruffy: 12-2-0 From Brazil
 #3 (LW) Max Holloway: 27-8-0 From United States
 #5 (Flw) Maycee Barber: 15-2-0 From United States
@@ -120,7 +120,7 @@ C (SW) Mackenzie Dern: 16-5-0 From United States
 #11 (MW) Michael Page: 24-3-0 From United Kingdom
 #13 (HW) Mick Parkin: 10-1-0 From England
 #13 (BW) Miesha Tate: 20-10-0 From United States
-#10 (Flw) Miranda Maverick: 17-6-0 From United States
+#9 (Flw) Miranda Maverick: 17-6-0 From United States
 #15 (BW) Montel Jackson: 15-3-0 From United States
 #1 (FW) Movsar Evloev: 19-0-0 From Russia
 #2 (MW) Nassourdine Imavov: 17-4-0 From Russia
@@ -146,7 +146,7 @@ C (BW) Petr Yan: 20-5-0 From Russia
 #3 (MW) Sean Strickland: 29-7-0 From United States
 #3 (HW) Sergei Pavlovich: 20-3-0 From Russia
 #7 (HW) Serghei Spivac: 17-6-0 From Moldova
-#11 (HW) Shamil Gaziev: 14-2-0 From Khunzakh
+#11 (HW) Shamil Gaziev: 14-2-0 From Russia
 #2 (WW) Shavkat Rakhmonov: 19-0-0 From Uzbekistan
 #5 (BW) Song Yadong: 22-8-1 From China
 #10 (Flw) Steve Erceg: 13-4-0 From Australia
@@ -166,7 +166,7 @@ C (Flw) Valentina Shevchenko: 26-4-1 From Kyrgyzstan
 #13 (BW) Vinicius Oliveira: 23-3-0 From Brazil
 #3 (SW) Virna Jandiroba: 22-4-0 From Brazil
 #8 (LHW) Volkan Oezdemir: 21-8-0 From Switzerland
-#5 (HW) Waldo Cortes Acosta: 16-2-0 From Fundacion
+#5 (HW) Waldo Cortes Acosta: 16-2-0 From Dominican Republic
 #12 (Flw) Wang Cong: 8-1-0 From China
 #3 (FW) Yair Rodriguez: 21-5-0 From Mexico
 #4 (SW) Yan Xiaonan: 19-5-0 From China
