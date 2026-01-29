@@ -8,15 +8,19 @@ function MMATable(props)
 {
     const[targetFighter, setTargetFighter] = useState(null);
     const[guessCount, setGuessCount] = useState(1);
-    const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
+    const [searchNames, setSearchNames] = useState([]);
     const [guesses, setGuesses] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [fetchingStorage, setFetchingStorage] = useState(false);
 
     const [currGuess, setCurrGuess] = useState("");
 
     const[gameOver, setGameOver] = useState(false);
     const[playerWon, setPlayerWon] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [fetchingStorage, setFetchingStorage] = useState(false);
+
+    const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
+    const startDate = new Date(2026, 0, 25, 0, 0, 0, 0);
+    let daysPassed=0;
 
     //Search for a specified fighter
     async function searchFighter(fighterName)
@@ -45,11 +49,10 @@ function MMATable(props)
         }
         let jsonResponse = await response.json();
 
-        let targetNumb = Math.floor(Math.random()* jsonResponse.length);
+        setSearchNames(jsonResponse);
+        const fighter = await searchFighter(jsonResponse[daysPassed % 176]);
+        console.log(jsonResponse[daysPassed % 176])
 
-        const fighter = await searchFighter(jsonResponse[targetNumb]);
-
-        console.log("TARGET FIGHTER: ", fighter);
         setTargetFighter(fighter);
     }
 
@@ -60,25 +63,44 @@ function MMATable(props)
                 setFetchingStorage(true);
 
                 const now = new Date();
-                const timeString = now.toISOString();
-                console.log(timeString);
+                daysPassed = Math.floor((now-startDate)/1000/60/60/24);
+                console.log(daysPassed)
 
-                localStorage.clear();
+                const storedDate = localStorage.getItem('day');
+
+                if (JSON.parse(storedDate)  && JSON.parse(storedDate) != daysPassed)
+                {
+                    console.log("days dont match " +JSON.parse(storedDate) + " " + daysPassed)
+                    localStorage.clear();
+                }
+                localStorage.setItem('day', daysPassed)
                 const storedGuesses = localStorage.getItem('guesses');
                 const storedGuessCount = localStorage.getItem('guessCount');
                 const storedGameOver = localStorage.getItem('gameOver');
                 const storedTarget = localStorage.getItem('targetFighter');
+                const storedNames = localStorage.getItem('names');
 
-                // console.log("STORED GUESSES " + JSON.parse(storedGuesses));
-                // console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
-                // console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
-                // console.log("STORED TARGET " +JSON.parse(storedTarget));
+                console.log("STORED GUESSES " + JSON.parse(storedGuesses));
+                console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
+                console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
+                console.log("STORED TARGET " +JSON.parse(storedTarget));
+                console.log("STORED names " +JSON.parse(storedNames));
+                console.log("STORED day " +JSON.parse(storedDate));
 
+
+                
+                if (JSON.parse(storedTarget)) {
+                    setTargetFighter(JSON.parse(storedTarget));
+                    setSearchNames(JSON.parse(storedNames));
+                } else {
+                    await chooseTarget();
+                }
 
                 if (JSON.parse(storedGuesses)) {
                     const parsedGuesses = JSON.parse(storedGuesses);
                     if (parsedGuesses.length > 0) {
-                        setGuesses(parsedGuesses);                    }
+                        setGuesses(parsedGuesses);                    
+                    }
                 }
 
                 if (Number(storedGuessCount)){
@@ -87,12 +109,6 @@ function MMATable(props)
 
                 if (storedGameOver){
                     setGameOver(storedGameOver ? JSON.parse(storedGameOver) : false);
-                }
-
-                if (JSON.parse(storedTarget)) {
-                    setTargetFighter(JSON.parse(storedTarget));
-                } else {
-                    await chooseTarget();
                 }
 
             } catch (e) {
@@ -113,6 +129,7 @@ function MMATable(props)
         localStorage.setItem('guesses', JSON.stringify(guesses));
         localStorage.setItem('gameOver', JSON.stringify(gameOver));
         localStorage.setItem('targetFighter', JSON.stringify(targetFighter));
+        localStorage.setItem('names', JSON.stringify(searchNames));
     }, [guessCount])
 
     function handleInputChange(e){
@@ -136,7 +153,6 @@ function MMATable(props)
     {
         let styles = [];
 
-        console.log(targetFighter);
         if (fighter.country === targetFighter.country)
         {
             styles.push("-correct");
