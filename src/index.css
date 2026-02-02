@@ -288,3 +288,24 @@ body {
     margin-top: 5px;
     margin-bottom: 0px;
 }
+
+.input-box{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 50px;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.search-option{
+    font-size: 20px;
+    width: 300px;
+    background-color: white;
+    height: 200px;
+}
+
+.entry:hover{
+    background-color: rgb(168, 168, 168);
+    cursor:pointer;
+    font-weight: bold;
+}

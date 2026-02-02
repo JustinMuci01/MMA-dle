@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "countryjs": "^1.8.0",
     "express": "^5.2.1",
     "react": "^19.1.1",

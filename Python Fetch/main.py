@@ -1,8 +1,17 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from data import mydb
 from mysql.connector import Error
+import mysql.connector
+import os
 app = FastAPI()
+
+
+mydb = mysql.connector.connect(
+    host = os.environ.get('DB_HOST'),
+    user=os.environ.get('DB_USER'),
+    password=os.environ.get('DB_PWORD'),
+    database = os.environ.get('DB')
+)
 
 origins = ["http://localhost:5173",
         "http://127.0.0.1:5173",]
@@ -24,12 +33,17 @@ def extract_info():
         cursor.execute(query)  
         result = cursor.fetchall()
 
+        
         cursor.close()
+        resultList = []
+        for line in result:
+            resultList.append(line[0])
 
+        print(resultList)
         if not result:
             raise HTTPException(status_code = 404, detail="Fighter Not Found")
         
-        return result
+        return resultList
     except Error as e:  
         raise HTTPException(status_code = 500, detail="Internal Service Error")
 

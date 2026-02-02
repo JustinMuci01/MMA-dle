@@ -2,13 +2,15 @@ import {useState, useEffect} from "react";
 import Fighter from "./Fighter";
 import './index.css'
 import IsBordering from "./Country";
+import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 
 
 function MMATable(props)
 {
     const[targetFighter, setTargetFighter] = useState(null);
     const[guessCount, setGuessCount] = useState(1);
-    const [searchNames, setSearchNames] = useState([]);
+    const [allNames, setAllNames] = useState([]);
+
     const [guesses, setGuesses] = useState([]);
 
     const [currGuess, setCurrGuess] = useState("");
@@ -17,6 +19,8 @@ function MMATable(props)
     const[playerWon, setPlayerWon] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [fetchingStorage, setFetchingStorage] = useState(false);
+
+    const [query, setQuery] = useState('')
 
     const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
     const startDate = new Date(2026, 0, 25, 0, 0, 0, 0);
@@ -49,9 +53,8 @@ function MMATable(props)
         }
         let jsonResponse = await response.json();
 
-        setSearchNames(jsonResponse);
+        setAllNames(jsonResponse);
         const fighter = await searchFighter(jsonResponse[daysPassed % 176]);
-        console.log(jsonResponse[daysPassed % 176])
 
         setTargetFighter(fighter);
     }
@@ -61,13 +64,11 @@ function MMATable(props)
         async function restore(){
             try {
                 setFetchingStorage(true);
-
                 const now = new Date();
                 daysPassed = Math.floor((now-startDate)/1000/60/60/24);
-                console.log(daysPassed)
-
+                console.log(daysPassed);
                 const storedDate = localStorage.getItem('day');
-
+                console.log(JSON.parse(storedDate));
                 if (JSON.parse(storedDate)  && JSON.parse(storedDate) != daysPassed)
                 {
                     console.log("days dont match " +JSON.parse(storedDate) + " " + daysPassed)
@@ -89,9 +90,9 @@ function MMATable(props)
 
 
                 
-                if (JSON.parse(storedTarget)) {
+                if (storedTarget && storedNames) {
                     setTargetFighter(JSON.parse(storedTarget));
-                    setSearchNames(JSON.parse(storedNames));
+                    setAllNames(JSON.parse(storedNames));
                 } else {
                     await chooseTarget();
                 }
@@ -129,7 +130,7 @@ function MMATable(props)
         localStorage.setItem('guesses', JSON.stringify(guesses));
         localStorage.setItem('gameOver', JSON.stringify(gameOver));
         localStorage.setItem('targetFighter', JSON.stringify(targetFighter));
-        localStorage.setItem('names', JSON.stringify(searchNames));
+        localStorage.setItem('names', JSON.stringify(allNames));
     }, [guessCount])
 
     function handleInputChange(e){
@@ -237,7 +238,8 @@ function MMATable(props)
     //Checks for duplicate guesses.
     async function computeGuess(fighterName)
     {
-        if (gameOver || !targetFighter)
+        console.log(fighterName);
+        if (gameOver || !targetFighter || !fighterName)
         {
             return;
         }
@@ -268,8 +270,15 @@ function MMATable(props)
         
     }
 
+    const filteredNames = 
+        query === ''
+        ? []
+        : allNames.filter(name =>
+              name.toLowerCase().includes(query.toLowerCase())
+          );
+
     return(
-        <>
+        <>  
         <link rel="icon" href="../img/gloves.png" type = "image"/>
         <title>MMA-DLE</title>
         
@@ -278,8 +287,27 @@ function MMATable(props)
         <div className = 'subtext'>Loading...</div>      
         ) : (
         <div className = "headerBar">
-        <input type="text" onChange = {handleInputChange}className = "searchBar" placeholder="Type a guess here..."/>
-        <button onClick = {() => computeGuess(currGuess)}> Guess </button>
+        <Combobox value={currGuess} onChange={(name) => {
+            setCurrGuess(name);
+            setQuery('');
+            computeGuess(name);
+            }}
+        >
+            <ComboboxInput 
+                className = "input-box"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search fighter..."
+            />
+            <ComboboxOptions anchor="bottom" className="search-option">
+            {filteredNames.map((person) => (
+            <ComboboxOption className = "entry  " key={person} value={person}>
+                {person}
+            </ComboboxOption>
+            ))}
+            </ComboboxOptions>
+        </Combobox>
+
         <p className = "sideText">Guess {guessCount} of 10 </p>
         </div>
         )}
