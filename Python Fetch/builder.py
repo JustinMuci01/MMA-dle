@@ -164,8 +164,7 @@ def clearTable():
     mydb.commit()
 
 
-clearTable()
-buildDB()
+
 showTable()
 mycursor.close()
 mydb.close()

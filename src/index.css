@@ -16,7 +16,7 @@ h1{
     text-align: center;
     color:white;
     font-size: 80px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     margin-top:30px;
     text-shadow: 2px 0px 30px #442626;
     font-family:Georgia, 'Times New Roman', Times, serif
@@ -308,4 +308,13 @@ body {
     background-color: rgb(168, 168, 168);
     cursor:pointer;
     font-weight: bold;
+}
+
+.info-text{
+    color:rgb(216, 216, 216);
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-size: 16px;
 }

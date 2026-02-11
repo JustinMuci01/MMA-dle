@@ -4,7 +4,6 @@ import './index.css'
 import IsBordering from "./Country";
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 
-
 function MMATable(props)
 {
     const[targetFighter, setTargetFighter] = useState(null);
@@ -23,8 +22,9 @@ function MMATable(props)
     const [query, setQuery] = useState('')
 
     const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
-    const startDate = new Date(2026, 0, 25, 0, 0, 0, 0);
+    const startDate = new Date(2026, 0, 26, 0, 0, 0, 0);
     let daysPassed=0;
+    let idx = [166, 20, 127, 124, 117, 86, 91, 61, 65, 72, 103, 169, 6, 37, 159, 35, 81, 54, 121, 78, 96, 87, 71, 90, 145, 23, 139, 44, 167, 162, 51, 5, 52, 115, 156, 13, 138, 137, 60, 158, 40, 82, 109, 29, 83, 114, 101, 9, 136, 134, 73, 89, 95, 25, 85, 27, 175, 0, 172, 126, 132, 77, 74, 84, 118, 62, 59, 173, 133, 165, 153, 97, 32, 120, 1, 129, 111, 94, 98, 147, 112, 4, 15, 56, 128, 57, 36, 47, 146, 28, 26, 38, 50, 39, 70, 110, 42, 10, 131, 63, 113, 148, 58, 164, 102, 122, 34, 142, 19, 11, 43, 123, 174, 3, 105, 143, 8, 99, 7, 92, 108, 67, 163, 79, 116, 170, 107, 75, 33, 21, 104, 12, 106, 16, 125, 93, 46, 152, 141, 144, 171, 100, 157, 48, 24, 88, 53, 49, 161, 154, 66, 80, 160, 68, 76, 45, 140, 149, 30, 155, 64, 130, 17, 18, 150, 31, 119, 135, 22, 151, 14, 168, 69, 55, 41, 2];
 
     //Search for a specified fighter
     async function searchFighter(fighterName)
@@ -54,7 +54,8 @@ function MMATable(props)
         let jsonResponse = await response.json();
 
         setAllNames(jsonResponse);
-        const fighter = await searchFighter(jsonResponse[daysPassed % 176]);
+
+        const fighter = await searchFighter(jsonResponse[idx[daysPassed % 176]]);
 
         setTargetFighter(fighter);
     }
@@ -68,7 +69,7 @@ function MMATable(props)
                 daysPassed = Math.floor((now-startDate)/1000/60/60/24);
                 console.log(daysPassed);
                 const storedDate = localStorage.getItem('day');
-                console.log(JSON.parse(storedDate));
+
                 if (JSON.parse(storedDate)  && JSON.parse(storedDate) != daysPassed)
                 {
                     console.log("days dont match " +JSON.parse(storedDate) + " " + daysPassed)
@@ -283,6 +284,9 @@ function MMATable(props)
         <title>MMA-DLE</title>
         
         <h1>MMA-DLE</h1>
+        <p className = 'info-text'> Try and guess the mystery fighter out of ranked UFC fighters</p>
+        <p className = 'info-text'> Game resets daily !</p>
+
         {fetchingStorage ? (
         <div className = 'subtext'>Loading...</div>      
         ) : (
