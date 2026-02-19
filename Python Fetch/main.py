@@ -7,14 +7,15 @@ app = FastAPI()
 
 
 mydb = mysql.connector.connect(
-    host = os.environ.get('DB_HOST'),
+    host=os.environ.get('DB_HOST'),
+    port=os.environ.get('DB_PORT'),
     user=os.environ.get('DB_USER'),
     password=os.environ.get('DB_PWORD'),
-    database = os.environ.get('DB')
+    database=os.environ.get('DB_NAME')
 )
 
-origins = ["http://localhost:5173",
-        "http://127.0.0.1:5173",]
+
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
