@@ -2,8 +2,14 @@ import os
 from bs4 import BeautifulSoup
 import mysql.connector
 import requests
-from data import mydb
 
+
+mydb = mysql.connector.connect(
+    host = os.environ.get('DB_HOST'),
+    user=os.environ.get('DB_USER'),
+    password=os.environ.get('DB_PWORD'),
+    database = os.environ.get('DB')
+)
 
 mycursor = mydb.cursor()
 

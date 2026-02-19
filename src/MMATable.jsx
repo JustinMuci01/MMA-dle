@@ -284,7 +284,7 @@ function MMATable(props)
         <title>MMA-DLE</title>
         
         <h1>MMA-DLE</h1>
-        <p className = 'info-text'> Try and guess the mystery fighter out of ranked UFC fighters</p>
+        <p className = 'info-text'> Try and guess the mystery ranked UFC fighter</p>
         <p className = 'info-text'> Game resets daily !</p>
 
         {fetchingStorage ? (
@@ -345,6 +345,7 @@ function MMATable(props)
                 <div className = 'dash'>-</div>
                 <div className = {`fighterInfo${f.stylesArr[5]}`}> {f.tempFighter.draws}</div>
                 </div>
+                <p className = 'subtext'>W - L - D</p>
                 </div>
                 </li>
             ))} 
