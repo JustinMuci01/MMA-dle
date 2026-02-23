@@ -11,8 +11,9 @@ mydb = mysql.connector.connect(
     port=os.environ.get('DB_PORT'),
     user=os.environ.get('DB_USER'),
     password=os.environ.get('DB_PWORD'),
-    database=os.environ.get('DB_NAME')
+    database=os.environ.get('DB')
 )
+
 
 string = "mysql://root:HBRQxiblbNoQsefdDWyNDmjXoSLvdMJg@yamabiko.proxy.rlwy.net:28793/railway"
 
@@ -30,7 +31,7 @@ app.add_middleware(
 def extract_info():
     try:
         cursor = mydb.cursor()
-        query = """SELECT Name FROM Fighters;"""
+        query = """SELECT Name FROM fighters;"""
 
         cursor.execute(query)  
         result = cursor.fetchall()
@@ -54,7 +55,7 @@ def extract_info():
 def extract_info(fighter):
     try:
         cursor = mydb.cursor()
-        query = """SELECT * FROM Fighters WHERE Name = %s Limit 1;"""
+        query = """SELECT * FROM fighters WHERE Name = %s Limit 1;"""
 
         print(fighter)
         cursor.execute(query, (fighter, ))  
