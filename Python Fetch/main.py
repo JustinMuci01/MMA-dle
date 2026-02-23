@@ -14,6 +14,7 @@ mydb = mysql.connector.connect(
     database=os.environ.get('DB_NAME')
 )
 
+string = "mysql://root:HBRQxiblbNoQsefdDWyNDmjXoSLvdMJg@yamabiko.proxy.rlwy.net:28793/railway"
 
 origins = ["*"]
 
@@ -46,6 +47,7 @@ def extract_info():
         
         return resultList
     except Error as e:  
+        print(f"Database error: {e}")
         raise HTTPException(status_code = 500, detail="Internal Service Error")
 
 @app.get("/fighters/")
@@ -66,4 +68,5 @@ def extract_info(fighter):
         
         return result
     except Error as e:  
+        print(f"Database error: {e}")
         raise HTTPException(status_code = 500, detail="Internal Service Error")
