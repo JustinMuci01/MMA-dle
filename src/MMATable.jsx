@@ -91,7 +91,7 @@ function MMATable(props)
 
 
                 //If nothing previously stored, select new user variables
-                if (storedTarget && storedNames) {
+                if (storedTarget && storedTarget != 'null' && storedNames && storedNames != []) {
                     setTargetFighter(JSON.parse(storedTarget));
                     setAllNames(JSON.parse(storedNames));
                 } else {
@@ -99,18 +99,18 @@ function MMATable(props)
                     await chooseTarget();
                 }
 
-                if (JSON.parse(storedGuesses)) {
+                if (storedGuesses && storedGuesses != []) {
                     const parsedGuesses = JSON.parse(storedGuesses);
                     if (parsedGuesses.length > 0) {
                         setGuesses(parsedGuesses);                    
                     }
                 }
 
-                if (Number(storedGuessCount)){
+                if (storedGuessCount && storedGuessCount != 'null'){
                     setGuessCount(Number(storedGuessCount) || 1);
                 }
 
-                if (storedGameOver){
+                if (storedGameOver && storedGameOver != 'null'){
                     setGameOver(storedGameOver ? JSON.parse(storedGameOver) : false);
                 }
 
