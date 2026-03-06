@@ -95,7 +95,8 @@ function MMATable(props)
                     setTargetFighter(JSON.parse(storedTarget));
                     setAllNames(JSON.parse(storedNames));
                 } else {
-                    await chooseTarget();
+                    console.log("???")
+                    await choose.Target();
                 }
 
                 if (JSON.parse(storedGuesses)) {
@@ -138,12 +139,12 @@ function MMATable(props)
     //Determine if player has won
     function isExactMatch(fighter) {
         return (
-            fighter.Country === targetFighter.country &&
-            fighter.WeightClass === targetFighter.weightClass &&
-            fighter.Ranking === targetFighter.ranking &&
-            fighter.Wins === targetFighter.wins &&
-            fighter.Losses === targetFighter.losses &&
-            fighter.Draws === targetFighter.draws
+            fighter.Country === targetFighter.Country &&
+            fighter.WeightClass === targetFighter.WeightClass &&
+            fighter.Ranking === targetFighter.Ranking &&
+            fighter.Wins === targetFighter.Wins &&
+            fighter.Losses === targetFighter.Losses &&
+            fighter.Draws === targetFighter.Draws
         );
     }
 

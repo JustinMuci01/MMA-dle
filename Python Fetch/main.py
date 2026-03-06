@@ -11,7 +11,7 @@ database = databases.Database(DATABASE_URL)
 # origins = ["http://localhost:5173"]
 
 #NETLIFY URL
-origins = ["https://fastidious-frangollo-be84b9.netlify.app/"]
+origins = ["https://fastidious-frangollo-be84b9.netlify.app"]
 
 app.add_middleware(
     CORSMiddleware,
