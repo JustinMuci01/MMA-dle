@@ -96,7 +96,7 @@ function MMATable(props)
                     setAllNames(JSON.parse(storedNames));
                 } else {
                     console.log("???")
-                    await choose.Target();
+                    await chooseTarget();
                 }
 
                 if (JSON.parse(storedGuesses)) {
