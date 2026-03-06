@@ -30,7 +30,7 @@ function MMATable(props)
     //Search for a specified fighter from Name
     async function searchFighter(fighterName)
     {
-        const url = `http://127.0.0.1:8000/fighters/?fighter=${encodeURIComponent(fighterName)}`;
+        const url = `https://mma-dle.onrender.com/fighters/?fighter=${encodeURIComponent(fighterName)}`;
         const response = await fetch(url);
         
         if (!response.ok)
@@ -45,7 +45,7 @@ function MMATable(props)
     //Choose a fighter randomly to be the target from list of full names
     async function chooseTarget()
     {
-        const url = `http://127.0.0.1:8000/names`;
+        const url = `https://mma-dle.onrender.com/names`;
         const response = await fetch(url);  
         if (!response.ok)
         {
