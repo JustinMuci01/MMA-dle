@@ -1,4 +1,6 @@
 MMA WEB GUESSING GAME !!
+PLAY HERE: https://fastidious-frangollo-be84b9.netlify.app/
+
 
 Guess from the current ranked roster of the UFC for the mystery target fighter.
 New fighters daily!
