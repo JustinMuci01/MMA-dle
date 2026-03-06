@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 #Python
-Python Fetch/data.py
+Python Fetch/test.txt
+Python Fetch/__pycache__/*
