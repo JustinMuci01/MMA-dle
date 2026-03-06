@@ -82,12 +82,12 @@ function MMATable(props)
                 const storedTarget = localStorage.getItem('targetFighter');
                 const storedNames = localStorage.getItem('names');
 
-                // console.log("STORED GUESSES " + JSON.parse(storedGuesses));
-                // console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
-                // console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
-                // console.log("STORED TARGET " +JSON.parse(storedTarget));
-                // console.log("STORED names " +JSON.parse(storedNames));
-                // console.log("STORED day " +JSON.parse(storedDate));
+                console.log("STORED GUESSES " + JSON.parse(storedGuesses));
+                console.log("STORED GUESSCOUNT " +Number(storedGuessCount));
+                console.log("STORED GAMEOVER " +JSON.parse(storedGameOver));
+                console.log("STORED TARGET " +JSON.parse(storedTarget));
+                console.log("STORED names " +JSON.parse(storedNames));
+                console.log("STORED day " +JSON.parse(storedDate));
 
 
                 //If nothing previously stored, select new user variables
