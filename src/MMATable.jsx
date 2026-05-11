@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import { createPortal} from  'react-dom';
 import './index.css'
 import IsBordering from "./Country";
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
@@ -20,6 +21,7 @@ function MMATable(props)
     const [isLoading, setIsLoading] = useState(false);
     const [fetchingStorage, setFetchingStorage] = useState(false);
     const [query, setQuery] = useState('')
+    const [showTutorial, setShowTutorial] = useState(false)
 
     //USED FOR CALCULATIONS LATER
     const weightClasses = ["SW", "Flw", "BW", "FW", "LW", "WW", "MW", "LHW", "HW"];
@@ -27,10 +29,16 @@ function MMATable(props)
     let daysPassed=0;
     let idx = [166, 20, 127, 124, 117, 86, 91, 61, 65, 72, 103, 169, 6, 37, 159, 35, 81, 54, 121, 78, 96, 87, 71, 90, 145, 23, 139, 44, 167, 162, 51, 5, 52, 115, 156, 13, 138, 137, 60, 158, 40, 82, 109, 29, 83, 114, 101, 9, 136, 134, 73, 89, 95, 25, 85, 27, 175, 0, 172, 126, 132, 77, 74, 84, 118, 62, 59, 173, 133, 165, 153, 97, 32, 120, 1, 129, 111, 94, 98, 147, 112, 4, 15, 56, 128, 57, 36, 47, 146, 28, 26, 38, 50, 39, 70, 110, 42, 10, 131, 63, 113, 148, 58, 164, 102, 122, 34, 142, 19, 11, 43, 123, 174, 3, 105, 143, 8, 99, 7, 92, 108, 67, 163, 79, 116, 170, 107, 75, 33, 21, 104, 12, 106, 16, 125, 93, 46, 152, 141, 144, 171, 100, 157, 48, 24, 88, 53, 49, 161, 154, 66, 80, 160, 68, 76, 45, 140, 149, 30, 155, 64, 130, 17, 18, 150, 31, 119, 135, 22, 151, 14, 168, 69, 55, 41, 2];
 
+    // LOCAL MACHINE TESTING
+    // const baseUrl = 'http://127.0.0.1:8000';
+
+    //DEPLOYED URL
+    const baseUrl = 'https://mma-dle.onrender.com';
+
     //Search for a specified fighter from fighterName string
     async function searchFighter(fighterName)
     {
-        const url = `https://mma-dle.onrender.com/fighters/?fighter=${encodeURIComponent(fighterName)}`;
+        const url = `${baseUrl}/fighters/?fighter=${encodeURIComponent(fighterName)}`;
         const response = await fetch(url);
         
         if (!response.ok)
@@ -45,7 +53,7 @@ function MMATable(props)
     //Choose a fighter randomly to be the target from list of full names
     async function chooseTarget()
     {
-        const url = `https://mma-dle.onrender.com/names`;
+        const url = `${baseUrl}/names`;
         const response = await fetch(url);  
         if (!response.ok)
         {
@@ -64,6 +72,7 @@ function MMATable(props)
     useEffect(() => {
         async function restore(){
             try {
+                localStorage.clear();
                 setFetchingStorage(true);
                 const now = new Date();
                 daysPassed = Math.floor((now-startDate)/1000/60/60/24);
@@ -171,13 +180,13 @@ function MMATable(props)
         {
             styles.push("-correct");
         }
-        else if (Math.abs(weightClasses.indexOf(fighter.WeightClass) - weightClasses.indexOf(targetFighter.weightClass)) < 2)
+        else if (Math.abs(weightClasses.indexOf(fighter.WeightClass) - weightClasses.indexOf(targetFighter.WeightClass)) < 2)
         {
             styles.push("-close");   
         }
         else
         {
-            styles.push("");    
+            styles.push("");
         }
 
         if (fighter.Ranking === targetFighter.Ranking)
@@ -284,19 +293,61 @@ function MMATable(props)
         <title>MMA-DLE</title>
         
         <h1>MMA-DLE</h1>
-        <p className = 'info-text'> Try and guess the mystery ranked UFC fighter. Current fighters only.</p>
+        <p className = 'info-text-bold'> Find out if you are a casual!</p>
+
+        <div className = 'info-text-box'>
+            <p className = 'info-text'> Try and guess the mystery ranked UFC fighter *CURRENT FIGHTERS ONLY.</p>
+            <img className = "help-img" src="./img/help-127.png" alt="help button" onClick = { () => setShowTutorial(!showTutorial)}/>
+        </div>
+
         <p className = 'info-text'> Game resets daily !</p>
 
+        {showTutorial && createPortal(
+        <div className="overlay" onClick={() => setShowTutorial(false)}>
+            <div className="tutorial-modal" onClick={(e) => e.stopPropagation()}>
+                <div className = "header-button">
+                    <h2>How to Play</h2>
+                    <button className="close-btn" onClick={() => setShowTutorial(false)}>✕</button>
+                </div>
+
+                <div className = "left-box">
+                    <p className = "tut-info">Guess any fighter in the dropdown search</p>
+                </div>
+
+                <div className = "center-box">
+                    <img src="./img/tut1.png" className ="tut-img" alt="" />
+                    <img src="./img/tut2.png" className ="tut-img" alt="" />
+                </div>
+
+                <div className = "left-box">
+                    <p className = "tut-info">*Correct fields will be green.</p>
+                    <p className = "tut-info">*Fields that are close (within 3 for W-L-D or ranking, one weight class off, bordering country) will be yellow.</p>
+                    <p className = "tut-info">*Incorrect Fields will be gray</p>
+                </div>
+
+                <div className = "center-box">
+                    <img src="./img/tut3.png" className ="tut-img" alt="" />
+                </div>
+                <div className = "left-box">
+                    <p className = "tut-info-f"> Try and guess the correct fighter in 10 guesses or less! </p>
+                </div>
+
+            </div>
+        </div>,
+        document.body
+        )}
+
         {fetchingStorage ? (
-        <div className = 'subtext'>Loading...</div>      
+        <div className = 'subtext'>Loading... this may take a while</div>      
         ) : (
+
         <div className = "headerBar">
         <Combobox value={currGuess} onChange={(name) => {
             setCurrGuess(name);
             setQuery('');
             computeGuess(name);
-            }}
-        >
+            }}>
+
             <ComboboxInput 
                 className = "input-box"
                 value={query}
@@ -312,7 +363,12 @@ function MMATable(props)
             </ComboboxOptions>
         </Combobox>
 
+        {guessCount >=10 &&
+        <p className = "sideText">Guess 10 of 10 </p>
+        }
+        {guessCount <10 &&
         <p className = "sideText">Guess {guessCount} of 10 </p>
+        }
         </div>
         )}
         <ul>
