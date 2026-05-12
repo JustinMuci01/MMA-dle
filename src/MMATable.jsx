@@ -72,7 +72,6 @@ function MMATable(props)
     useEffect(() => {
         async function restore(){
             try {
-                localStorage.clear();
                 setFetchingStorage(true);
                 const now = new Date();
                 daysPassed = Math.floor((now-startDate)/1000/60/60/24);
