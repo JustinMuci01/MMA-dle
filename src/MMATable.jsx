@@ -289,7 +289,7 @@ function MMATable(props)
 
     return(
         <>  
-        <link rel="icon" href="../img/gloves.png" type = "image"/>
+        <link rel="icon" href="/img/gloves.png" type = "image"/>
         <title>MMA-DLE</title>
         
         <h1>MMA-DLE</h1>
@@ -297,7 +297,7 @@ function MMATable(props)
 
         <div className = 'info-text-box'>
             <p className = 'info-text'> Try and guess the mystery ranked UFC fighter *CURRENT FIGHTERS ONLY.</p>
-            <img className = "help-img" src="./img/help-127.png" alt="help button" onClick = { () => setShowTutorial(!showTutorial)}/>
+            <img className = "help-img" src="/img/help-127.png" alt="help button" onClick = { () => setShowTutorial(!showTutorial)}/>
         </div>
 
         <p className = 'info-text'> Game resets daily !</p>
@@ -315,8 +315,8 @@ function MMATable(props)
                 </div>
 
                 <div className = "center-box">
-                    <img src="./img/tut1.png" className ="tut-img" alt="" />
-                    <img src="./img/tut2.png" className ="tut-img" alt="" />
+                    <img src="/img/tut1.png" className ="tut-img" alt="" />
+                    <img src="/img/tut2.png" className ="tut-img" alt="" />
                 </div>
 
                 <div className = "left-box">
@@ -326,7 +326,7 @@ function MMATable(props)
                 </div>
 
                 <div className = "center-box">
-                    <img src="./img/tut3.png" className ="tut-img" alt="" />
+                    <img src="/img/tut3.png" className ="tut-img" alt="" />
                 </div>
                 <div className = "left-box">
                     <p className = "tut-info-f"> Try and guess the correct fighter in 10 guesses or less! </p>
