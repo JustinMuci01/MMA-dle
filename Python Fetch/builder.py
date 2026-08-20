@@ -130,6 +130,8 @@ def extractPlayer(player, WC, ranking):
         country = "France"
     if (name == "Ilia Topuria"):
         country = "Spain"
+    if (name == "Ikram Aliskerov"):
+        country = "Russia"
     
     mycursor.execute(sql, (name, ranking, wins, losses, draws, WC, country, imgTag))
 

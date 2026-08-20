@@ -1,159 +1,160 @@
 C (Flw) Joshua Van: 17-2-0 From Myanmar
 #1 (Flw) Alexandre Pantoja: 30-6-0 From Brazil
-#2 (Flw) Manel Kape: 22-7-0 From Angola
-#3 (Flw) Tatsuro Taira: 18-2-0 From Japan
-#4 (Flw) Brandon Royval: 17-9-0 From United States
-#5 (Flw) Kyoji Horiguchi: 36-5-0 From Japan
-#6 (Flw) Lone’er Kavanagh: 10-1-0 From England
-#7 (Flw) Amir Albazi: 17-3-0 From Iraq
-#8 (Flw) Asu Almabayev: 23-3-0 From Kazakhstan
-#9 (Flw) Brandon Moreno: 23-10-2 From Mexico
-#10 (Flw) Steve Erceg: 14-4-0 From Australia
+#2 (Flw) Manel Kape: 23-7-0 From Angola
+#3 (Flw) Brandon Royval: 18-9-0 From United States
+#4 (Flw) Tatsuro Taira: 18-2-0 From Japan
+#5 (Flw) Kyoji Horiguchi: 36-6-0 From Japan
+#6 (Flw) Lone’er Kavanagh: 10-2-0 From England
+#7 (Flw) Asu Almabayev: 24-3-0 From Kazakhstan
+#8 (Flw) Brandon Moreno: 23-10-2 From Mexico
+#9 (Flw) Amir Albazi: 17-3-0 From Iraq
+#10 (Flw) Ramazan Temirov: 20-3-0 From Uzbekistan
 #11 (Flw) Alex Perez: 26-10-0 From United States
-#12 (Flw) Tim Elliott: 22-14-1 From United States
-#13 (Flw) Charles Johnson: 19-8-0 From United States
+#12 (Flw) Steve Erceg: 14-5-0 From Australia
+#13 (Flw) Tim Elliott: 22-14-1 From United States
 #14 (Flw) Tagir Ulanbekov: 17-3-0 From Russia
-#15 (Flw) Bruno Silva: 15-8-2 From Brazil
+#15 (Flw) Charles Johnson: 20-9-0 From United States
 C (BW) Petr Yan: 20-5-0 From Russia
 #1 (BW) Merab Dvalishvili: 21-5-0 From Georgia
-#2 (BW) Umar Nurmagomedov: 20-1-0 From Russia
-#3 (BW) Sean O'Malley: 19-3-0 From United States
-#4 (BW) Cory Sandhagen: 18-6-0 From United States
-#5 (BW) Song Yadong: 22-9-1 From China
-#6 (BW) Aiemann Zahabi: 14-2-0 From Canada
-#7 (BW) Deiveson Figueiredo: 25-6-1 From Brazil
-#8 (BW) Mario Bautista: 17-3-0 From United States
-#9 (BW) David Martinez: 14-1-0 From Mexico
+#2 (BW) Sean O'Malley: 20-3-0 From United States
+#3 (BW) Umar Nurmagomedov: 20-1-0 From Russia
+#4 (BW) Mario Bautista: 18-3-0 From United States
+#5 (BW) Cory Sandhagen: 18-7-0 From United States
+#6 (BW) Song Yadong: 23-9-1 From China
+#7 (BW) Aiemann Zahabi: 14-3-0 From Canada
+#8 (BW) David Martinez: 14-1-0 From Mexico
+#9 (BW) Deiveson Figueiredo: 25-7-1 From Brazil
 #10 (BW) Marlon Vera: 23-12-1 From Ecuador
 #11 (BW) Payton Talbott: 11-1-0 From United States
-#12 (BW) Vinicius Oliveira: 23-4-0 From Brazil
-#13 (BW) Raul Rosas Jr.: 13-1-0 From United States
-#14 (BW) Raoni Barcelos: 22-5-0 From Brazil
-#15 (BW) Farid Basharat: 15-0-0 From Afghanistan
+#12 (BW) Raul Rosas Jr.: 13-1-0 From United States
+#13 (BW) Raoni Barcelos: 22-5-0 From Brazil
+#14 (BW) Farid Basharat: 16-0-0 From Afghanistan
+#15 (BW) Marcus McGhee: 11-2-0 From United States
 C (FW) Alexander Volkanovski: 28-4-0 From Australia
 #1 (FW) Movsar Evloev: 20-0-0 From Russia
-#2 (FW) Diego Lopes: 27-8-0 From Brazil
+#2 (FW) Diego Lopes: 28-8-0 From Brazil
 #3 (FW) Lerone Murphy: 17-1-1 From England
 #4 (FW) Aljamain Sterling: 26-5-0 From United States
 #5 (FW) Yair Rodriguez: 21-5-0 From Mexico
 #6 (FW) Jean Silva: 17-3-0 From Brazil
-#7 (FW) Arnold Allen: 20-4-0 From England
+#7 (FW) Arnold Allen: 21-4-0 From England
 #8 (FW) Youssef Zalal: 18-6-1 From Morocco
-#9 (FW) Steve Garcia: 19-5-0 From United States
-#10 (FW) Kevin Vallejos: 17-1-0 From Argentina
+#9 (FW) Kevin Vallejos: 17-1-0 From Argentina
+#10 (FW) Steve Garcia: 19-6-0 From United States
 #11 (FW) Brian Ortega: 16-5-0 From United States
-#12 (FW) Melquizael Costa: 26-7-0 From Brazil
-#13 (FW) Aaron Pico: 14-5-0 From United States
+#12 (FW) Aaron Pico: 14-5-0 From United States
+#13 (FW) Melquizael Costa: 26-7-0 From Brazil
 #14 (FW) David Onama: 14-3-0 From Uganda
 #15 (FW) Patricio Pitbull: 37-9-0 From Brazil
-C (LW) Ilia Topuria: 17-0-0 From Spain
-#1 (LW) Justin Gaethje: 27-5-0 From United States
+C (LW) Justin Gaethje: 28-5-0 From United States
+#1 (LW) Ilia Topuria: 17-1-0 From Spain
 #2 (LW) Arman Tsarukyan: 23-3-0 From Georgia
 #3 (LW) Charles Oliveira: 37-11-0 From Brazil
 #4 (LW) Max Holloway: 27-9-0 From United States
-#5 (LW) Benoît Saint Denis: 17-3-0 From France
-#6 (LW) Paddy Pimblett: 23-4-0 From England
-#7 (LW) Mateusz Gamrot: 26-4-0 From Poland
-#8 (LW) Dan Hooker: 24-14-0 From New Zealand
-#9 (LW) Renato Moicano: 21-7-1 From Brazil
-#10 (LW) Mauricio Ruffy: 13-2-0 From Brazil
-#11 (LW) Rafael Fiziev: 13-5-0 From Kyrgyzstan
-#12 (LW) Quillan Salkilld: 12-1-0 From Australia
-#13 (LW) Michael Chandler: 23-10-0 From United States
+#5 (LW) Paddy Pimblett: 24-4-0 From England
+#6 (LW) Benoît Saint Denis: 17-4-0 From France
+#7 (LW) Mauricio Ruffy: 14-2-0 From Brazil
+#8 (LW) Quillan Salkilld: 13-1-0 From Australia
+#9 (LW) Mateusz Gamrot: 26-5-0 From Poland
+#10 (LW) Dan Hooker: 24-14-0 From New Zealand
+#11 (LW) Renato Moicano: 21-7-1 From Brazil
+#12 (LW) Rafael Fiziev: 14-5-0 From Kyrgyzstan
+#13 (LW) Tom Nolan: 11-1-0 From Australia
 #14 (LW) Beneil Dariush: 23-8-1 From Iran
-#15 (LW) Farès Ziam: 18-4-0 From France
-C (WW) Islam Makhachev: 28-1-0 From Russia
-#1 (WW) Ian Machado Garry: 17-1-0 From Ireland
+#15 (LW) Manuel Torres: 17-4-0 From Mexico
+C (WW) Islam Makhachev: 29-1-0 From Russia
+#1 (WW) Ian Machado Garry: 17-2-0 From Ireland
 #2 (WW) Carlos Prates: 24-7-0 From Brazil
 #3 (WW) Michael Morales: 19-0-0 From Ecuador
 #4 (WW) Jack Della Maddalena: 18-4-0 From Australia
-#5 (WW) Belal Muhammad: 24-5-0 From United States
+#5 (WW) Gabriel Bonfim: 20-1-0 From Brazil
 #6 (WW) Sean Brady: 19-2-0 From United States
-#7 (WW) Leon Edwards: 22-6-0 From Jamaica
-#8 (WW) Kamaru Usman: 21-4-0 From Nigeria
-#9 (WW) Joaquin Buckley: 21-8-0 From United States
-#10 (WW) Gabriel Bonfim: 19-1-0 From Brazil
-#11 (WW) Mike Malott: 14-2-1 From United States
-#12 (WW) Uroš Medić: 13-3-0 From Serbia
-#13 (WW) Michael Venom Page: 25-3-0 From United Kingdom
-#14 (WW) Yaroslav Amosov: 29-1-0 From Ukraine
-#15 (WW) Daniel Rodriguez: 20-5-0 From United States
-C (MW) Khamzat Chimaev: 15-1-0 From Russia
-#1 (MW) Dricus Du Plessis: 23-3-0 From South Africa
-#2 (MW) Nassourdine Imavov: 17-4-0 From Russia
-#3 (MW) Sean Strickland: 31-7-0 From United States
-#4 (MW) Brendan Allen: 26-7-0 From United States
+#7 (WW) Belal Muhammad: 24-6-0 From United States
+#8 (WW) Leon Edwards: 22-6-0 From Jamaica
+#9 (WW) Kamaru Usman: 21-5-0 From Nigeria
+#10 (WW) Joaquin Buckley: 21-8-0 From United States
+#11 (WW) Yaroslav Amosov: 29-1-0 From Ukraine
+#12 (WW) Uroš Medić: 14-3-0 From Serbia
+#13 (WW) Mike Malott: 14-2-1 From United States
+#14 (WW) Daniel Rodriguez: 20-6-0 From United States
+#15 (WW) Neil Magny: 32-15-0 From United States
+C (MW) Sean Strickland: 31-7-0 From United States
+#1 (MW) Khamzat Chimaev: 15-1-0 From Russia
+#2 (MW) Dricus Du Plessis: 24-3-0 From South Africa
+#3 (MW) Nassourdine Imavov: 17-4-0 From Russia
+#4 (MW) Brendan Allen: 27-7-0 From United States
 #5 (MW) Caio Borralho: 18-2-0 From Brazil
-#6 (MW) Joe Pyfer: 16-3-0 From United States
-#7 (MW) Anthony Hernandez: 15-3-0 From United States
-#8 (MW) Reinier de Ridder: 21-4-0 From Netherlands
-#9 (MW) Israel Adesanya: 24-6-0 From Nigeria
-#10 (MW) Robert Whittaker: 27-9-0 From Australia
-#11 (MW) Jared Cannonier: 18-9-0 From United States
-#12 (MW) Gregory Rodrigues: 19-6-0 From Brazil
-#13 (MW) Christian Leroy Duncan: 14-2-0 From United Kingdom
-#14 (MW) Paulo Costa: 16-4-0 From Brazil
+#6 (MW) Anthony Hernandez: 15-3-0 From United States
+#7 (MW) Joe Pyfer: 16-3-0 From United States
+#8 (MW) Israel Adesanya: 24-6-0 From Nigeria
+#9 (MW) Reinier de Ridder: 21-4-0 From Netherlands
+#10 (MW) Christian Leroy Duncan: 15-2-0 From United Kingdom
+#11 (MW) Gregory Rodrigues: 19-6-0 From Brazil
+#12 (MW) Jared Cannonier: 18-10-0 From United States
+#13 (MW) Ikram Aliskerov: 18-2-0 From Makhachkala
+#14 (MW) Bo Nickal: 9-1-0 From United States
 #15 (MW) Roman Dolidze: 15-5-0 From Georgia
 C (LHW) Carlos Ulberg: 15-1-0 From New Zealand
-#1 (LHW) Magomed Ankalaev: 21-2-1 From Russia
-#2 (LHW) Alex Pereira: 13-3-0 From Brazil
-#3 (LHW) Jiří Procházka: 32-6-1 From Czechia
-#4 (LHW) Jan Błachowicz: 29-11-2 From Poland
-#5 (LHW) Khalil Rountree Jr.: 15-7-0 From United States
-#6 (LHW) Jamahal Hill: 12-4-0 From United States
+#1 (LHW) Magomed Ankalaev: 22-2-1 From Russia
+#2 (LHW) Jiří Procházka: 32-6-1 From Czechia
+#3 (LHW) Alex Pereira: 13-4-0 From Brazil
+#4 (LHW) Khalil Rountree Jr.: 15-7-0 From United States
+#5 (LHW) Navajo Stirling: 11-0-0 From New Zealand
+#6 (LHW) Paulo Costa: 16-4-0 From Brazil
+#7 (LHW) Jamahal Hill: 12-4-0 From United States
 #8 (LHW) Azamat Murzakanov: 16-1-0 From Russia
-#9 (LHW) Dominick Reyes: 16-5-0 From United States
-#10 (LHW) Bogdan Guskov: 18-3-0 From Uzbekistan
-#11 (LHW) Volkan Oezdemir: 21-8-0 From Switzerland
-#12 (LHW) Aleksandar Rakić: 14-6-0 From Austria
-#13 (LHW) Nikita Krylov: 31-11-0 From Ukraine
-#14 (LHW) Johnny Walker: 22-10-0 From Brazil
-#15 (LHW) Alonzo Menifield: 17-6-1 From United States
+#9 (LHW) Jan Błachowicz: 29-12-2 From Poland
+#10 (LHW) Dominick Reyes: 16-5-0 From United States
+#11 (LHW) Bogdan Guskov: 18-3-0 From Uzbekistan
+#12 (LHW) Robert Whittaker: 28-9-0 From Australia
+#13 (LHW) Johnny Walker: 22-10-0 From Brazil
+#14 (LHW) Alonzo Menifield: 18-6-1 From United States
+#15 (LHW) Nikita Krylov: 31-12-0 From Ukraine
 C (HW) Tom Aspinall: 15-3-0 From England
-#1 (HW) Ciryl Gane: 13-2-0 From France
+#1 (HW) Ciryl Gane: 14-2-0 From France
 #2 (HW) Alexander Volkov: 40-11-0 From Russia
-#3 (HW) Sergei Pavlovich: 20-3-0 From Russia
-#4 (HW) Waldo Cortes Acosta: 17-3-0 From Dominican Republic
-#5 (HW) Josh Hokit: 9-0-0 From United States
+#3 (HW) Sergei Pavlovich: 21-3-0 From Russia
+#4 (HW) Josh Hokit: 10-0-0 From United States
+#5 (HW) Waldo Cortes Acosta: 17-3-0 From Dominican Republic
 #6 (HW) Serghei Spivac: 18-6-0 From Moldova
 #7 (HW) Curtis Blaydes: 19-6-0 From United States
-#8 (HW) Rizvan Kuniev: 12-3-1 From Makhachkala
-#9 (HW) Derrick Lewis: 29-13-0 From United States
-#10 (HW) Ante Delija: 26-8-0 From Croatia
-#11 (HW) Tyrell Fortune: 18-3-0 From United States
-#12 (HW) Marcin Tybura: 27-11-0 From Poland
-#13 (HW) Valter Walker: 15-1-0 From Brazil
-#14 (HW) Tallison Teixeira: 9-1-0 From Brazil
+#8 (HW) Rizvan Kuniev: 14-3-1 From Makhachkala
+#9 (HW) Ante Delija: 26-8-0 From Croatia
+#10 (HW) Aleksandar Rakić: 15-6-0 From Austria
+#11 (HW) Valter Walker: 16-1-0 From Brazil
+#12 (HW) Tyrell Fortune: 18-4-0 From United States
+#13 (HW) Derrick Lewis: 29-14-0 From United States
+#14 (HW) Marcin Tybura: 27-12-0 From Poland
 #15 (HW) Brando Peričić: 7-1-0 From Australia
-C (SW) Mackenzie Dern: 16-5-0 From United States
+C (SW) Mackenzie Dern: 17-5-0 From United States
 #1 (SW) Zhang Weili: 26-4-0 From China
 #2 (SW) Tatiana Suarez: 13-1-0 From United States
 #3 (SW) Virna Jandiroba: 23-4-0 From Brazil
 #4 (SW) Yan Xiaonan: 19-5-0 From China
-#5 (SW) Gillian Robertson: 17-8-0 From Canada
-#6 (SW) Loopy Godinez: 14-6-0 From Mexico
-#7 (SW) Amanda Lemos: 15-6-1 From Brazil
-#8 (SW) Tabatha Ricci: 12-4-0 From Brazil
+#5 (SW) Gillian Robertson: 17-9-0 From Canada
+#6 (SW) Fatima Kline: 10-1-0 From United States
+#7 (SW) Loopy Godinez: 14-6-0 From Mexico
+#8 (SW) Alexia Thainara: 15-1-0 From Brazil
 #9 (SW) Jéssica Andrade: 26-15-0 From Brazil
-#10 (SW) Amanda Ribas: 13-7-0 From Brazil
-#11 (SW) Fatima Kline: 9-1-0 From United States
-#12 (SW) Denise Gomes: 12-3-0 From Brazil
-#13 (SW) Alexia Thainara: 14-1-0 From Brazil
-#14 (SW) Angela Hill: 18-16-0 From United States
+#10 (SW) Tabatha Ricci: 12-5-0 From Brazil
+#11 (SW) Amanda Lemos: 15-7-1 From Brazil
+#12 (SW) Amanda Ribas: 13-7-0 From Brazil
+#13 (SW) Angela Hill: 19-16-0 From United States
+#14 (SW) Denise Gomes: 12-3-0 From Brazil
 #15 (SW) Mizuki: 16-6-0 From Japan
 C (Flw) Valentina Shevchenko: 26-4-1 From Kyrgyzstan
 #1 (Flw) Natalia Silva: 20-5-1 From Brazil
 #2 (Flw) Manon Fiorot: 13-2-0 From France
 #3 (Flw) Alexa Grasso: 17-5-1 From Mexico
 #4 (Flw) Erin Blanchfield: 14-2-0 From United States
-#5 (Flw) Maycee Barber: 15-3-0 From United States
-#6 (Flw) Rose Namajunas: 15-8-0 From United States
+#5 (Flw) Rose Namajunas: 15-8-0 From United States
+#6 (Flw) Maycee Barber: 15-3-0 From United States
 #7 (Flw) Jasmine Jasudavicius: 15-4-0 From Canada
-#8 (Flw) Tracy Cortez: 12-3-0 From United States
-#9 (Flw) Miranda Maverick: 17-6-0 From United States
-#10 (Flw) Karine Silva: 19-7-0 From Brazil
-#11 (Flw) Casey O'Neill: 11-2-0 From Scotland
-#12 (Flw) Wang Cong: 9-1-0 From China
+#8 (Flw) Wang Cong: 10-1-0 From China
+#9 (Flw) Tracy Cortez: 12-4-0 From United States
+#10 (Flw) Miranda Maverick: 17-6-0 From United States
+#11 (Flw) Karine Silva: 19-7-0 From Brazil
+#12 (Flw) Casey O'Neill: 11-2-0 From Scotland
 #13 (Flw) Eduarda Moura: 12-2-0 From Brazil
 #14 (Flw) JJ Aldrich: 15-7-0 From United States
 #15 (Flw) Gabriella Fernandes: 11-4-0 From Brazil
@@ -162,14 +163,14 @@ C (BW) Kayla Harrison: 19-1-0 From United States
 #2 (BW) Raquel Pennington: 16-10-0 From United States
 #3 (BW) Joselyne Edwards: 18-6-0 From Panama
 #4 (BW) Norma Dumont: 13-3-0 From Brazil
-#5 (BW) Ketlen Vieira: 15-5-0 From Brazil
-#6 (BW) Ailin Perez: 13-2-0 From Argentina
-#7 (BW) Yana Santos: 17-8-0 From Russia
-#8 (BW) Irene Aldana: 15-8-0 From Mexico
-#9 (BW) Macy Chiasson: 11-6-0 From United States
-#10 (BW) Karol Rosa: 19-7-0 From Brazil
-#11 (BW) Jacqueline Cavalcanti: 10-1-0 From Brazil
-#12 (BW) Nora Cornolle: 9-4-0 From France
-#13 (BW) Michelle Montague: 8-0-0 From New Zealand
-#14 (BW) Luana Santos: 10-2-0 From Brazil
-#15 (BW) Bia Mesquita: 6-0-0 From Brazil
+#5 (BW) Ailin Perez: 13-2-0 From Argentina
+#6 (BW) Yana Santos: 17-8-0 From Russia
+#7 (BW) Luana Santos: 11-2-0 From Brazil
+#8 (BW) Macy Chiasson: 11-6-0 From United States
+#9 (BW) Jacqueline Cavalcanti: 10-2-0 From Brazil
+#10 (BW) Karol Rosa: 19-8-0 From Brazil
+#11 (BW) Bia Mesquita: 8-0-0 From Brazil
+#12 (BW) Michelle Montague: 8-0-0 From New Zealand
+#13 (BW) Nora Cornolle: 9-4-0 From France
+#14 (BW) Miesha Tate: 20-10-0 From United States
+#15 (BW) Melissa Croden: 8-3-0 From Canada

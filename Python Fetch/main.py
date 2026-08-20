@@ -8,7 +8,7 @@ DATABASE_URL = "sqlite:///./data/mmafighters_fighters.db"
 database = databases.Database(DATABASE_URL)
 
 #LOCAL MACHINE
-# origins = ["http://localhost:5173"]
+#origins = ["http://localhost:5173"]
 
 #NETLIFY URL
 origins = ["https://fastidious-frangollo-be84b9.netlify.app"]
