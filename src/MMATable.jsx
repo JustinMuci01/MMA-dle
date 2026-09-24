@@ -30,7 +30,7 @@ function MMATable(props)
     let idx = [166, 20, 127, 124, 117, 86, 91, 61, 65, 72, 103, 169, 6, 37, 159, 35, 81, 54, 121, 78, 96, 87, 71, 90, 145, 23, 139, 44, 167, 162, 51, 5, 52, 115, 156, 13, 138, 137, 60, 158, 40, 82, 109, 29, 83, 114, 101, 9, 136, 134, 73, 89, 95, 25, 85, 27, 175, 0, 172, 126, 132, 77, 74, 84, 118, 62, 59, 173, 133, 165, 153, 97, 32, 120, 1, 129, 111, 94, 98, 147, 112, 4, 15, 56, 128, 57, 36, 47, 146, 28, 26, 38, 50, 39, 70, 110, 42, 10, 131, 63, 113, 148, 58, 164, 102, 122, 34, 142, 19, 11, 43, 123, 174, 3, 105, 143, 8, 99, 7, 92, 108, 67, 163, 79, 116, 170, 107, 75, 33, 21, 104, 12, 106, 16, 125, 93, 46, 152, 141, 144, 171, 100, 157, 48, 24, 88, 53, 49, 161, 154, 66, 80, 160, 68, 76, 45, 140, 149, 30, 155, 64, 130, 17, 18, 150, 31, 119, 135, 22, 151, 14, 168, 69, 55, 41, 2];
 
     // LOCAL MACHINE TESTING
-    // const baseUrl = 'http://127.0.0.1:8000';
+    //const baseUrl = 'http://127.0.0.1:8000';
 
     //DEPLOYED URL
     const baseUrl = 'https://mma-dle.onrender.com';
@@ -72,6 +72,7 @@ function MMATable(props)
     useEffect(() => {
         async function restore(){
             try {
+                localStorage.clear();
                 setFetchingStorage(true);
                 const now = new Date();
                 daysPassed = Math.floor((now-startDate)/1000/60/60/24);
@@ -261,12 +262,17 @@ function MMATable(props)
             let tempFighter = await searchFighter(fighterName);
             const stylesArr = getColors(tempFighter);
 
-            setPlayerWon(isExactMatch(tempFighter));
-            setGameOver(isExactMatch(tempFighter));
+            const won = isExactMatch(tempFighter);
+            setPlayerWon(won);
 
             setGuessCount(prev => {
-                if (prev + 1 >= 11) setGameOver(true);
-                return prev + 1;
+                const newCount = prev + 1;
+
+                if (won || newCount >= 10) {
+                    setGameOver(true);
+                }
+
+                return newCount;
             });
 
             let object = {tempFighter, stylesArr};
@@ -288,6 +294,7 @@ function MMATable(props)
 
     return(
         <>  
+
         <link rel="icon" href="/img/gloves.png" type = "image"/>
         <title>MMA-DLE</title>
         
@@ -295,7 +302,7 @@ function MMATable(props)
         <p className = 'info-text-bold'> Find out if you are a casual!</p>
 
         <div className = 'info-text-box'>
-            <p className = 'info-text'> Try and guess the mystery ranked UFC fighter *CURRENT FIGHTERS ONLY.</p>
+            <p className = 'info-text'> Try and guess the mystery currently ranked UFC fighter (From Official UFC Media Panel Rankings).</p>
             <img className = "help-img" src="/img/help-127.png" alt="help button" onClick = { () => setShowTutorial(!showTutorial)}/>
         </div>
 
@@ -339,7 +346,22 @@ function MMATable(props)
         {fetchingStorage ? (
         <div className = 'subtext'>Loading... this may take a while</div>      
         ) : (
-
+        <> 
+        {gameOver && <div className="end-overlay">
+            <div className="gameover-modal" onClick={(e) => e.stopPropagation()}>
+                {playerWon ? (
+                    <>
+                        <h2>Got it in {guessCount} Guesses!</h2>
+                    </>
+                ) : (
+                    <>
+                        <h2>{targetFighter?.Name}</h2>
+                    </>
+                )}
+        
+            </div>
+        </div>
+        }
         <div className = "headerBar">
         <Combobox value={currGuess} onChange={(name) => {
             setCurrGuess(name);
@@ -369,6 +391,7 @@ function MMATable(props)
         <p className = "sideText">Guess {guessCount} of 10 </p>
         }
         </div>
+        </>
         )}
         <ul>
             {!isLoading && guesses != null && guesses.map((f) =>(
